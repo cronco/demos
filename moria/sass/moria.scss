@@ -16,10 +16,32 @@ body {
 	display: table-row;
 	vertical-align: middle;
 }
+
+/* Image preloader */
+.preload {
+	position: absolute;
+	left: -9999px;
+}
+
+/* Scene container */
 .scene {
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
+	background: url('../img/loading.gif') 50% 50% no-repeat;
+	
+	.gate, .keyb, .msg {
+		opacity: 0;
+		@include transition(opacity 1s);
+	}
+	
+	&.is-loaded {
+		background: none;
+	
+		.gate, .keyb, .msg {
+			opacity: 1;
+		}
+	}
 }
 
 /* Keyboard input widget */
@@ -77,7 +99,7 @@ body {
 	height: 463px;
 	overflow: hidden;
 	@include perspective(1000);
-	background: url('http:/aviary.itsravenous.com/img/gate.png') no-repeat;
+	background: url('http://aviary.itsravenous.com/moria/img/gate.png') no-repeat;
 	opacity: 0.5;
 	@include transition(opacity 2s);
 }
@@ -116,7 +138,7 @@ body {
 	float: left;
 	width: 162px;
 	height: 463px;
-	background: url('http:/aviary.itsravenous.com/img/doors.png') no-repeat;
+	background: url('http://aviary.itsravenous.com/moria/img/doors.png') no-repeat;
 	@include transition(transform 2s ease-in-out);
 }
 .gate-r {

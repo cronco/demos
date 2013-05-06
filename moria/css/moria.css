@@ -19,14 +19,22 @@ body {
   vertical-align: middle;
 }
 
-/* line 19, ../sass/moria.scss */
+/* Image preloader */
+/* line 21, ../sass/moria.scss */
+.preload {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Scene container */
+/* line 27, ../sass/moria.scss */
 .scene {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
   background: url("../img/loading.gif") 50% 50% no-repeat;
 }
-/* line 25, ../sass/moria.scss */
+/* line 33, ../sass/moria.scss */
 .scene .gate, .scene .keyb, .scene .msg {
   opacity: 0;
   -webkit-transition: opacity 1s;
@@ -34,13 +42,17 @@ body {
   -o-transition: opacity 1s;
   transition: opacity 1s;
 }
-/* line 30, ../sass/moria.scss */
+/* line 38, ../sass/moria.scss */
+.scene.is-loaded {
+  background: none;
+}
+/* line 41, ../sass/moria.scss */
 .scene.is-loaded .gate, .scene.is-loaded .keyb, .scene.is-loaded .msg {
   opacity: 1;
 }
 
 /* Keyboard input widget */
-/* line 37, ../sass/moria.scss */
+/* line 48, ../sass/moria.scss */
 .keyb {
   position: absolute;
   left: -9999px;
@@ -51,14 +63,14 @@ body {
   transition: opacity 2.5s;
 }
 
-/* line 43, ../sass/moria.scss */
+/* line 54, ../sass/moria.scss */
 .keyb.is-shown {
   position: static;
   left: auto;
   opacity: 1;
 }
 
-/* line 48, ../sass/moria.scss */
+/* line 59, ../sass/moria.scss */
 .keyb input {
   border: none;
   background: none;
@@ -71,7 +83,7 @@ body {
 }
 
 /* Instructions/error area */
-/* line 60, ../sass/moria.scss */
+/* line 71, ../sass/moria.scss */
 .msg {
   width: 30em;
   margin: 1em auto;
@@ -84,7 +96,7 @@ body {
   transition: opacity 0.75s;
 }
 
-/* line 70, ../sass/moria.scss */
+/* line 81, ../sass/moria.scss */
 .msg a {
   color: #82e4f1;
   text-decoration: none;
@@ -94,19 +106,19 @@ body {
   transition: text-shadow 0.5s;
 }
 
-/* line 76, ../sass/moria.scss */
+/* line 87, ../sass/moria.scss */
 .msg strong,
 .msg a:hover {
   text-shadow: 0 0 10px #fff, 0 0 20px #fff;
 }
 
-/* line 79, ../sass/moria.scss */
+/* line 90, ../sass/moria.scss */
 .msg.is-shown {
   opacity: 1;
 }
 
 /* Gate */
-/* line 84, ../sass/moria.scss */
+/* line 95, ../sass/moria.scss */
 .gate {
   display: inline-block;
   position: relative;
@@ -118,7 +130,7 @@ body {
   -ms-perspective: 1000;
   -o-perspective: 1000;
   perspective: 1000;
-  background: url("../img/gate.png") no-repeat;
+  background: url("http://aviary.itsravenous.com/moria/img/gate.png") no-repeat;
   opacity: 0.5;
   -webkit-transition: opacity 2s;
   -moz-transition: opacity 2s;
@@ -127,14 +139,14 @@ body {
 }
 
 /* Gate ready state */
-/* line 96, ../sass/moria.scss */
+/* line 107, ../sass/moria.scss */
 .is-ready .gate {
   opacity: 1;
   cursor: pointer;
 }
 
 /* Prize behind doors */
-/* line 102, ../sass/moria.scss */
+/* line 113, ../sass/moria.scss */
 .gate .prize {
   position: absolute;
   left: 88px;
@@ -154,26 +166,26 @@ body {
 }
 
 /* Fade in when doors open */
-/* line 112, ../sass/moria.scss */
+/* line 123, ../sass/moria.scss */
 .gate.is-open .prize {
   opacity: 1;
 }
 
 /* 'Hovering' animation for prize */
 @-moz-keyframes hover {
-  /* line 118, ../sass/moria.scss */
+  /* line 129, ../sass/moria.scss */
   0% {
     -moz-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 119, ../sass/moria.scss */
+  /* line 130, ../sass/moria.scss */
   50% {
     -moz-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 120, ../sass/moria.scss */
+  /* line 131, ../sass/moria.scss */
   100% {
     -moz-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
@@ -181,19 +193,19 @@ body {
 }
 
 @-webkit-keyframes hover {
-  /* line 118, ../sass/moria.scss */
+  /* line 129, ../sass/moria.scss */
   0% {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 119, ../sass/moria.scss */
+  /* line 130, ../sass/moria.scss */
   50% {
     -webkit-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 120, ../sass/moria.scss */
+  /* line 131, ../sass/moria.scss */
   100% {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
@@ -201,19 +213,19 @@ body {
 }
 
 @-o-keyframes hover {
-  /* line 118, ../sass/moria.scss */
+  /* line 129, ../sass/moria.scss */
   0% {
     -o-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 119, ../sass/moria.scss */
+  /* line 130, ../sass/moria.scss */
   50% {
     -o-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 120, ../sass/moria.scss */
+  /* line 131, ../sass/moria.scss */
   100% {
     -o-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
@@ -221,19 +233,19 @@ body {
 }
 
 @-ms-keyframes hover {
-  /* line 118, ../sass/moria.scss */
+  /* line 129, ../sass/moria.scss */
   0% {
     -ms-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 119, ../sass/moria.scss */
+  /* line 130, ../sass/moria.scss */
   50% {
     -ms-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 120, ../sass/moria.scss */
+  /* line 131, ../sass/moria.scss */
   100% {
     -ms-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
@@ -241,44 +253,44 @@ body {
 }
 
 @keyframes hover {
-  /* line 118, ../sass/moria.scss */
+  /* line 129, ../sass/moria.scss */
   0% {
     transform: translate3d(0, 10px, 0);
   }
 
-  /* line 119, ../sass/moria.scss */
+  /* line 130, ../sass/moria.scss */
   50% {
     transform: translate3d(0, -10px, 0);
   }
 
-  /* line 120, ../sass/moria.scss */
+  /* line 131, ../sass/moria.scss */
   100% {
     transform: translate3d(0, 10px, 0);
   }
 }
 
 /* Gate doors */
-/* line 125, ../sass/moria.scss */
+/* line 136, ../sass/moria.scss */
 .gate-l,
 .gate-r {
   position: relative;
   float: left;
   width: 162px;
   height: 463px;
-  background: url("../img/doors.png") no-repeat;
+  background: url("http://aviary.itsravenous.com/moria/img/doors.png") no-repeat;
   -webkit-transition: -webkit-transform 2s ease-in-out;
   -moz-transition: -moz-transform 2s ease-in-out;
   -o-transition: -o-transform 2s ease-in-out;
   transition: transform 2s ease-in-out;
 }
 
-/* line 133, ../sass/moria.scss */
+/* line 144, ../sass/moria.scss */
 .gate-r {
   background-position: 100%;
 }
 
 /* Closed state */
-/* line 137, ../sass/moria.scss */
+/* line 148, ../sass/moria.scss */
 .gate-l {
   -webkit-transform-origin: 68px 0 50%;
   -moz-transform-origin: 68px 0 50%;
@@ -287,7 +299,7 @@ body {
   transform-origin: 68px 0 50%;
 }
 
-/* line 140, ../sass/moria.scss */
+/* line 151, ../sass/moria.scss */
 .gate-r {
   -webkit-transform-origin: 104px 0 50%;
   -moz-transform-origin: 104px 0 50%;
@@ -297,7 +309,7 @@ body {
 }
 
 /* Open state */
-/* line 146, ../sass/moria.scss */
+/* line 157, ../sass/moria.scss */
 .csstransforms3d .gate.is-open .gate-l {
   -webkit-transform: rotate3d(0, 1, 0, -120deg);
   -moz-transform: rotate3d(0, 1, 0, -120deg);
@@ -305,7 +317,7 @@ body {
   -o-transform: rotate3d(0, 1, 0, -120deg);
   transform: rotate3d(0, 1, 0, -120deg);
 }
-/* line 149, ../sass/moria.scss */
+/* line 160, ../sass/moria.scss */
 .csstransforms3d .gate.is-open .gate-r {
   -webkit-transform: rotate3d(0, 1, 0, 120deg);
   -moz-transform: rotate3d(0, 1, 0, 120deg);
@@ -315,7 +327,7 @@ body {
 }
 
 /* 2d transform fallback*/
-/* line 158, ../sass/moria.scss */
+/* line 169, ../sass/moria.scss */
 .no-csstransforms3d .is-open .gate-l,
 .no-csstransforms3d .is-open .gate-r {
   -webkit-transform: scaleX(-1);

@@ -130,8 +130,13 @@
 	var aud_fool = document.querySelector('.snd-fool'); // Try again
 	var aud_open = document.querySelector('.snd-open'); // Door open
 	
-	window.onload = function (e) {
-		// Go!
-		startScene();
+	// Start after images loaded
+	var preloads = document.querySelector('.preload').getElementsByTagName('img');
+	for ( var i = 0; i < preloads.length; i ++ ) {
+		preloads[i].addEventListener('load', function(e) {
+			var preloader = this.parentNode;
+			preloader.removeChild(this);
+			if (preloader.childNodes.length == 0) startScene();
+		});
 	}
 })();
