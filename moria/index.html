@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Welcome to the Mines of Moria</title>
+		<meta name="viewport" content="width=device-width,user-scalable=yes"/>
+
+		<link href='http://fonts.googleapis.com/css?family=Buenard:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/moria.css" />
+
+	</head>
+	<body>
+
+		<div class="scene">
+			<div class="gate">
+				<img class="prize" src="img/prize.png" />
+				<div class="gate-l"></div>
+				<div class="gate-r"></div>
+			</div>
+			
+			<form class="keyb">
+				<input type="text" id="password" placeholder="type the password here..." />
+			</form>
+			
+			<div class="msg is-shown">
+				<a class="skip-intro" href="#">Skip Gandalf's attempt</a>
+			</div>
+		</div>
+		
+		<!-- Sounds -->
+		<audio class="snd-intro">
+			<source type="audio/mpeg" src="http://aviary.itsravenous.com/moria/snd/gandalf.mp3" />
+			<source type="audio/ogg" src="http://aviary.itsravenous.com/moria/snd/gandalf.ogg" />
+		</audio>
+		<audio class="snd-fool">
+			<source src="snd/http://aviary.itsravenous.com/moria/fool.mp3" />
+			<source src="snd/http://aviary.itsravenous.com/moria/fool.ogg" />
+		</audio>
+		<audio class="snd-open">
+			<source src="snd/http://aviary.itsravenous.com/moria/open.mp3" />
+			<source src="snd/http://aviary.itsravenous.com/moria/open.ogg" />
+		</audio>
+
+
+		<!-- Game script -->
+		<script type="text/javascript" src="js/modernizr.js"></script>
+		<script type="text/javascript" src="js/moria.js"></script>
+
+	</body>
+</html>

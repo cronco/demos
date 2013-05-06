@@ -1,0 +1,326 @@
+/* Base layout - centres whole scene vertically in window */
+/* line 6, ../sass/moria.scss */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Buenard', serif;
+}
+
+/* line 11, ../sass/moria.scss */
+html {
+  display: table;
+  background: #0c1117;
+}
+
+/* line 15, ../sass/moria.scss */
+body {
+  display: table-row;
+  vertical-align: middle;
+}
+
+/* line 19, ../sass/moria.scss */
+.scene {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  background: url("../img/loading.gif") 50% 50% no-repeat;
+}
+/* line 25, ../sass/moria.scss */
+.scene .gate, .scene .keyb, .scene .msg {
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+/* line 30, ../sass/moria.scss */
+.scene.is-loaded .gate, .scene.is-loaded .keyb, .scene.is-loaded .msg {
+  opacity: 1;
+}
+
+/* Keyboard input widget */
+/* line 37, ../sass/moria.scss */
+.keyb {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  -webkit-transition: opacity 2.5s;
+  -moz-transition: opacity 2.5s;
+  -o-transition: opacity 2.5s;
+  transition: opacity 2.5s;
+}
+
+/* line 43, ../sass/moria.scss */
+.keyb.is-shown {
+  position: static;
+  left: auto;
+  opacity: 1;
+}
+
+/* line 48, ../sass/moria.scss */
+.keyb input {
+  border: none;
+  background: none;
+  color: #82e4f1;
+  text-shadow: 0 0 10px #fff;
+  box-shadow: 0 5px 5px -6px #82e4f1;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: center;
+}
+
+/* Instructions/error area */
+/* line 60, ../sass/moria.scss */
+.msg {
+  width: 30em;
+  margin: 1em auto;
+  color: #82e4f1;
+  text-shadow: 0 0 10px #fff;
+  opacity: 0;
+  -webkit-transition: opacity 0.75s;
+  -moz-transition: opacity 0.75s;
+  -o-transition: opacity 0.75s;
+  transition: opacity 0.75s;
+}
+
+/* line 70, ../sass/moria.scss */
+.msg a {
+  color: #82e4f1;
+  text-decoration: none;
+  -webkit-transition: text-shadow 0.5s;
+  -moz-transition: text-shadow 0.5s;
+  -o-transition: text-shadow 0.5s;
+  transition: text-shadow 0.5s;
+}
+
+/* line 76, ../sass/moria.scss */
+.msg strong,
+.msg a:hover {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+}
+
+/* line 79, ../sass/moria.scss */
+.msg.is-shown {
+  opacity: 1;
+}
+
+/* Gate */
+/* line 84, ../sass/moria.scss */
+.gate {
+  display: inline-block;
+  position: relative;
+  width: 324px;
+  height: 463px;
+  overflow: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+  background: url("../img/gate.png") no-repeat;
+  opacity: 0.5;
+  -webkit-transition: opacity 2s;
+  -moz-transition: opacity 2s;
+  -o-transition: opacity 2s;
+  transition: opacity 2s;
+}
+
+/* Gate ready state */
+/* line 96, ../sass/moria.scss */
+.is-ready .gate {
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Prize behind doors */
+/* line 102, ../sass/moria.scss */
+.gate .prize {
+  position: absolute;
+  left: 88px;
+  top: 160px;
+  width: 160px;
+  opacity: 0;
+  -webkit-animation: hover 2s infinite;
+  -moz-animation: hover 2s infinite;
+  -ms-animation: hover 2s infinite;
+  -o-animation: hover 2s infinite;
+  animation: hover 2s infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -ms-animation-timing-function: ease-in-out;
+  -o-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+/* Fade in when doors open */
+/* line 112, ../sass/moria.scss */
+.gate.is-open .prize {
+  opacity: 1;
+}
+
+/* 'Hovering' animation for prize */
+@-moz-keyframes hover {
+  /* line 118, ../sass/moria.scss */
+  0% {
+    -moz-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  /* line 119, ../sass/moria.scss */
+  50% {
+    -moz-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  /* line 120, ../sass/moria.scss */
+  100% {
+    -moz-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+@-webkit-keyframes hover {
+  /* line 118, ../sass/moria.scss */
+  0% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  /* line 119, ../sass/moria.scss */
+  50% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  /* line 120, ../sass/moria.scss */
+  100% {
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+@-o-keyframes hover {
+  /* line 118, ../sass/moria.scss */
+  0% {
+    -o-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  /* line 119, ../sass/moria.scss */
+  50% {
+    -o-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  /* line 120, ../sass/moria.scss */
+  100% {
+    -o-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+@-ms-keyframes hover {
+  /* line 118, ../sass/moria.scss */
+  0% {
+    -ms-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+
+  /* line 119, ../sass/moria.scss */
+  50% {
+    -ms-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  /* line 120, ../sass/moria.scss */
+  100% {
+    -ms-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+@keyframes hover {
+  /* line 118, ../sass/moria.scss */
+  0% {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  /* line 119, ../sass/moria.scss */
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  /* line 120, ../sass/moria.scss */
+  100% {
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+/* Gate doors */
+/* line 125, ../sass/moria.scss */
+.gate-l,
+.gate-r {
+  position: relative;
+  float: left;
+  width: 162px;
+  height: 463px;
+  background: url("../img/doors.png") no-repeat;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  -moz-transition: -moz-transform 2s ease-in-out;
+  -o-transition: -o-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+}
+
+/* line 133, ../sass/moria.scss */
+.gate-r {
+  background-position: 100%;
+}
+
+/* Closed state */
+/* line 137, ../sass/moria.scss */
+.gate-l {
+  -webkit-transform-origin: 68px 0 50%;
+  -moz-transform-origin: 68px 0 50%;
+  -ms-transform-origin: 68px 0 50%;
+  -o-transform-origin: 68px 0 50%;
+  transform-origin: 68px 0 50%;
+}
+
+/* line 140, ../sass/moria.scss */
+.gate-r {
+  -webkit-transform-origin: 104px 0 50%;
+  -moz-transform-origin: 104px 0 50%;
+  -ms-transform-origin: 104px 0 50%;
+  -o-transform-origin: 104px 0 50%;
+  transform-origin: 104px 0 50%;
+}
+
+/* Open state */
+/* line 146, ../sass/moria.scss */
+.csstransforms3d .gate.is-open .gate-l {
+  -webkit-transform: rotate3d(0, 1, 0, -120deg);
+  -moz-transform: rotate3d(0, 1, 0, -120deg);
+  -ms-transform: rotate3d(0, 1, 0, -120deg);
+  -o-transform: rotate3d(0, 1, 0, -120deg);
+  transform: rotate3d(0, 1, 0, -120deg);
+}
+/* line 149, ../sass/moria.scss */
+.csstransforms3d .gate.is-open .gate-r {
+  -webkit-transform: rotate3d(0, 1, 0, 120deg);
+  -moz-transform: rotate3d(0, 1, 0, 120deg);
+  -ms-transform: rotate3d(0, 1, 0, 120deg);
+  -o-transform: rotate3d(0, 1, 0, 120deg);
+  transform: rotate3d(0, 1, 0, 120deg);
+}
+
+/* 2d transform fallback*/
+/* line 158, ../sass/moria.scss */
+.no-csstransforms3d .is-open .gate-l,
+.no-csstransforms3d .is-open .gate-r {
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
