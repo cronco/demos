@@ -131,12 +131,22 @@
 	var aud_open = document.querySelector('.snd-open'); // Door open
 	
 	// Start after images loaded
-	var preloads = document.querySelector('.preload').getElementsByTagName('img');
+	var preloader = document.querySelector('.preload');
+	var preloads = [
+		'http://aviary.itsravenous.com/moria/img/gate.png',
+		'http://aviary.itsravenous.com/moria/img/doors.png'
+	];
 	for ( var i = 0; i < preloads.length; i ++ ) {
-		preloads[i].addEventListener('load', function(e) {
+		var img = new Image();
+		console.log(img);
+		
+		img.addEventListener('load', function(e) {
 			var preloader = this.parentNode;
 			preloader.removeChild(this);
 			if (preloader.childNodes.length == 0) startScene();
 		});
+		
+		preloader.appendChild(img);
+		img.src = preloads[i];
 	}
 })();
