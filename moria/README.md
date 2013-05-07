@@ -1,5 +1,7 @@
 # 'Mines of Moria' HTML5 demo by [@itsravenous](http://twitter.com/itsravenous) #
 
+[Try before you clone](http://aviary.itsravenous.com/moria) :)
+
 This demo uses a variety of HTML5 jazziness, including <audio>, CSS 3d transforms & animation and speech recognition via the Web Speech API.
 It was part of a larger treasure hunt my brother and I put on for our cousins, the other components of which may surface in time.
 
