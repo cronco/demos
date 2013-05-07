@@ -138,7 +138,6 @@
 	];
 	for ( var i = 0; i < preloads.length; i ++ ) {
 		var img = new Image();
-		console.log(img);
 		
 		img.addEventListener('load', function(e) {
 			var preloader = this.parentNode;
